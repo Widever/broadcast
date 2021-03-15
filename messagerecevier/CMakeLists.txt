@@ -14,10 +14,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Core REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core REQUIRED)
 find_package(Qt6 COMPONENTS Network REQUIRED)
+find_package(Qt6 COMPONENTS Concurrent REQUIRED)
 
 add_executable(messagerecevier
   main.cpp
   receiver.cpp
   receiver.h
 )
-target_link_libraries(messagerecevier Qt${QT_VERSION_MAJOR}::Core Qt6::Network)
+target_link_libraries(messagerecevier Qt${QT_VERSION_MAJOR}::Core Qt6::Network Qt6::Concurrent)

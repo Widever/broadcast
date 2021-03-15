@@ -1,9 +1,15 @@
 #include <QCoreApplication>
 #include "receiver.h"
+#include <QFuture>
+#include <QThread>
+#include <QtConcurrent>
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
+    QCoreApplication qapplication(argc, argv);
     Receiver* receiver = new Receiver();
-    return a.exec();
+    receiver->setApp(&qapplication);
+    receiver->setDelay(500);
+
+    return qapplication.exec();
 }

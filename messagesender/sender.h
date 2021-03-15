@@ -16,9 +16,10 @@ class Sender : public QObject
     Q_OBJECT
 public:
     Sender(QObject* parent = nullptr);
-    void startBroadcasting();
-public slots:
+    void setMessageData(const QString& messageData);
+    void setMessageDelay(int messageDelay);
     void broadcastDatagram();
+
 private:
     Message message;
     QUdpSocket *udpSocket = nullptr;
